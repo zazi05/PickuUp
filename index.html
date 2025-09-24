@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <title>PickuUp</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="assets/js/script.js" defer></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+  <header>
+    <div class="branding">
+      <img src="logo.png" alt="PickuUp Logo" />
+      <h1>PickuUp</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="signup.html">Sign Up</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="search" class="search-section">
+      <div class="search-header">
+        <h2>search rides</h2>
+        <p>Find your next ride across South Africa-fast, safe, and stylish</p>
+      </div>
+      <form class="search-form">
+        <div class = "input-group">
+          <label for="from">From</label>
+          <input type="text" id="from" name="from" placeholder="E.g. Umhlanga" required />
+        </div>
+        <div class = "input-group">
+          <label for="to">To</label>
+          <input type="text" id="to" name="to" placeholder="E.g.Kloof" required />
+        </div>
+        <button type="submit">Search Rides</button>
+      </form>
+      </form>
+      <section id="ride-tracker" class="tracker-section">
+  <h2>🚗 Tracking Your Ride</h2>
+  <div class="tracker-bar">
+    <div class="car-icon">🚕</div>
+  </div>
+  <p class="tracker-status">Finding your driver...</p>
+</section>
+      <section class="slideshow"></section>
+      <img src="assets/images/search.png" alt="Search Rides" />
+    </section>
+
+    <section id="services">
+  <h2>Our Services</h2>
+  <div class="service-card" onclick="window.location.href='#delivery'">
+    <h3>Delivery</h3>
+    <p>Fast and reliable package delivery.</p>
+  </div>
+  <div class="service-card" onclick="window.location.href='#ride'">
+    <h3>Ride-Hailing</h3>
+    <p>Affordable rides across South Africa.</p>
+  </div>
+  <div class="service-card" onclick="window.location.href='#food'">
+    <h3>Food Delivery</h3>
+    <p>Get your favorite meals delivered fast.</p>
+  </div>
+</section>
+      <section id="offers" class="offers-section">
+        <h2>Exclusive offers</h2>
+        <div class="offer-grid">
+          <div class="offer-card">
+            <h3>Book for someone else</h3>
+            <p>Send a ride to a friend, family member, or client-fast and easy</p>
+            <button>Book now</button>
+          </div>
+          <div class="offer-card">
+            <h3>Get 20% off</h3>
+            <p>Use code PICKU20 on your next ride and save big</p>
+            <button>Apply promo</button>
+          </div>
+            <div class="offer-card">
+              <h3>Gift Voucher</h3>
+              <p>Share the joy of PickuUp with a gift voucher for any occasion</p>
+              <button>Buy voucher</button>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="about" class="about-section">
+      <h2>About PickuUp</h2>
+      <p>PickuUp is a ride-sharing service that connects drivers with passengers</p>
+      <div class="welcome banner">
+      <h3>Welcome to PickuUp</h3>
+      <p>Your journey starts now.</p>
+      </div>
+
+    <!-- Login/Signup Success Catchphrase -->
+    <section id="lets-ride" class="lets-ride-banner">
+      <h2>Let’s ride!!!</h2>
+      <p>Your journey begins here. Whether you're heading to work, meeting friends, or exploring the city, PickuUp is your trusted companion for safe and reliable rides.</p>
+    
+    </section>
+  </main>
+
+  <footer>
+    <div class=" footer-contact"></div>
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>PickuUp Inc.</p>
+      <p>123 Main St, Umhlanga, Durban, RSA</p>
+      <p>Email: simelanevini05@gmail.com</p>
+      <p>Phone: +27 76 123 4567</p>
+      <form>
+        <input type="text" placeholder="Name" required />
+        <input type="email" placeholder="Email" required />
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 PickuUp. All rights reserved.</p>
+      <p> Made with ❤️ in South Africa</p>
+        <a href="#privacy">Privacy Policy</a> |
+        <a href="#terms">Terms of Service</a>
+      </p>
+      <p>
+        Follow us on
+        <a href="#facebook">Facebook</a>,
+        <a href="#twitter">Twitter</a>,
+        <a href="#instagram">Instagram</a>
+
+      </p>
+      <div class="footer-map-section">
+  <h3>📍 Service Coverage</h3>
+  <p>PickuUp operates across major cities in South Africa.</p>
+  <div id="footer-map"></div>
+</div>
+    </section>
+    </div>
+  </footer>
+  <script>
+  const footerMap = L.map('footer-map').setView([-29.8587, 31.0218], 12); // Durban
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(footerMap);
+
+  L.marker([-29.8587, 31.0218]).addTo(footerMap)
+    .bindPopup('Durban HQ ')
+    .openPopup();
+</script>
+</body>
+</html>
