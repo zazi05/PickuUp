@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <title>PickuUp</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="css/auth.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
 </head>
 <body>
   <header>
     <div class="branding">
-      <img src="logo.png" alt="PickuUp Logo" />
+      <img src="carlogo.png" alt="PickuUp Logo" />
       <h1>PickuUp</h1>
     </div>
     <nav>
@@ -24,6 +24,7 @@
         <li><a href="#contact">Contact</a></li>
         <li><a href="login.html">Login</a></li>
         <li><a href="signup.html">Sign Up</a></li>
+        <li><a href= "#services" id="nav-services">Services</a></li>
       </ul>
     </nav>
   </header>
@@ -34,17 +35,10 @@
         <h2>search rides</h2>
         <p>Find your next ride across South Africa-fast, safe, and stylish</p>
       </div>
-      <form class="search-form">
-        <div class = "input-group">
-          <label for="from">From</label>
-          <input type="text" id="from" name="from" placeholder="E.g. Umhlanga" required />
-        </div>
-        <div class = "input-group">
-          <label for="to">To</label>
-          <input type="text" id="to" name="to" placeholder="E.g.Kloof" required />
-        </div>
-        <button type="submit">Search Rides</button>
-      </form>
+      <form id="rideform">
+        <input type="text" id="pickup" name="pickup" placeholder="Pickup Location" required />
+        <input type="text" id="dropoff" name="dropoff" placeholder="Dropoff Location" required />
+        <button type="submit">Request Ride</button>
       </form>
       <section id="ride-tracker" class="tracker-section">
   <h2>🚗 Tracking Your Ride</h2>
@@ -106,7 +100,8 @@
     <section id="lets-ride" class="lets-ride-banner">
       <h2>Let’s ride!!!</h2>
       <p>Your journey begins here. Whether you're heading to work, meeting friends, or exploring the city, PickuUp is your trusted companion for safe and reliable rides.</p>
-    
+    <section id="map" style="height: 400px"></section>
+    <section id="productlist"></section>
     </section>
   </main>
 
@@ -159,5 +154,4 @@
     .openPopup();
 </script>
 </body>
-
 </html>
