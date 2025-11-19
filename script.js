@@ -36,4 +36,27 @@ document.querySelectorAll('a{href^="#"}').forEach(anchor => {
             behavior: 'smooth'
         });
     });
+
 }); 
+// Enquiry form logic
+const enquiryForm = document.getElementById('enquiryForm');
+if (enquiryForm) {
+  enquiryForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const distance = parseFloat(enquiryForm.distance.value);
+    let estimate = distance * 6; // simple rate
+    const result = document.getElementById('result');
+    result.style.display = 'block';
+    result.textContent = `Estimated cost: ZAR ${estimate.toFixed(2)}`;
+  });
+}
+
+// Contact form logic
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const success = document.getElementById('contactSuccess');
+    success.style.display = 'block';
+  });
+}
